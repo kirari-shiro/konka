@@ -1,0 +1,24 @@
+{
+  "name": "konka",
+  "version": "1.0.0",
+  "description": "",
+  "main": "gulpfile.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kirari-shiro/konka.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/kirari-shiro/konka/issues"
+  },
+  "homepage": "https://github.com/kirari-shiro/konka#readme",
+  "dependencies": {
+    "jquery": "^3.5.1",
+    "requirejs": "^2.3.6"
+  }
+}
