@@ -515,3 +515,6 @@ a {
   height: 25px;
   margin-top: 8px;
 }
+.tool > ul > li:last-child {
+  display: none;
+}

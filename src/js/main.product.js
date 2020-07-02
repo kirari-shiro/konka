@@ -13,12 +13,13 @@ require(['index'], function(index) {
 });
 
 require(['product'],function(pro){
+        pro.tabs();
+        pro.scroll();
     pro.render(function(id){
         pro.loupe();
         pro.addCar(id);
         pro.addNum();
-        pro.tabs();
-        pro.scroll();
+        
     });
     
 })
