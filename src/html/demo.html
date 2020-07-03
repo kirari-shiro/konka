@@ -22,10 +22,53 @@
       }
     </style>
     <script>
-      let arr=[{
-        a:['1',2,3]
-      }]
-      console.log(JSON.stringify(arr))
+      // function Foo(){
+      //   let i=0;
+      //   return function(){
+          
+      //     console.log(i++)
+      //     // return i
+      //   }
+      // }
+      // var f1=Foo(),f2=Foo(),f3=Foo()
+
+      // f1();
+      // f1();
+      // f1();
+      // f2();
+      // f2();
+      // f3();
+
+
+
+
+      // var name='global',
+      //     obj={
+      //       'name':'obj',
+      //       does:function(){
+      //         this.name="does"
+      //         return function(){
+      //           return this.name
+      //         }
+      //       }
+      //     }
+
+      //     obj.does()
+      //     console.log(obj);
+      //     console.log(obj.does().call(this))
+
+      var obj={
+        ss:null,
+        crd:function(){
+          if(!this.ss){
+            this.ss=document.createElement('div')
+          }
+          return this.ss
+        }
+      }
+      let f1=obj.crd(),
+          f2=obj.crd();
+      console.log(f1===f2)
     </script>
   </head>
   <body>

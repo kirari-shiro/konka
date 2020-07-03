@@ -163,6 +163,30 @@ define(['jquery'], function ($) {
                 $('.numT').html(numT.toFixed(2));
                 $('.total').html(check.length)
             })
+        },
+        changeNum:function(){
+            $('.shop_noun').on('input','#number',function(){
+                let num=$(this).val();
+                if(!num>0){
+                    num=1
+                }else{
+                    num=parseInt(num);
+                }
+                $(this).val(num);
+
+                $(this).parent().parent().children('li:nth-last-child(2)').html(
+                    ($(this).parent().parent().children('li:nth-child(3)').html()*num).toFixed(2)
+                )
+
+                let check=$('.check:checked'),
+                numT=0;
+                $('.check:checked').parent().parent().children('li:nth-child(3)').each(function(i,elm){
+                    let num=$(elm).parent().children('li:nth-child(4)').children('input').val()
+                   numT+= $(elm).html()*num
+                })
+                $('.numT').html(numT.toFixed(2));
+                $('.total').html(check.length)
+            })
         }
     }
 })

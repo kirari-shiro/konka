@@ -146,6 +146,18 @@ define(['jquery'],function($){
                     $('.intr-nav').css('display','none')
                 }
             });
+        },
+        changeNum:function(){
+            $('#number').on('input',function(){
+                let num=$(this).val();
+                if(!num>0){
+                    num=1
+                }else{
+                    num=parseInt(num);
+                }
+                $(this).val(num);
+
+            })
         }
     }
 })

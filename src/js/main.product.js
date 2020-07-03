@@ -19,7 +19,7 @@ require(['product'],function(pro){
         pro.loupe();
         pro.addCar(id);
         pro.addNum();
-        
+        pro.changeNum()
     });
     
 })

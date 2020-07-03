@@ -18,5 +18,6 @@ require(['shop'],function(shop){
         shop.check();
         shop.checkAll();
         shop.addNum();
+        shop.changeNum()
     })
 })
