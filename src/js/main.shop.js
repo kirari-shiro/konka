@@ -8,8 +8,10 @@ require.config({
 
 
 require(['index'],function(index){
-    index.search(),
-    index.tool()
+    index.search();
+    index.tool();
+    index.userSave();
+    index.userOut();
 })
 
 require(['shop'],function(shop){
@@ -18,6 +20,6 @@ require(['shop'],function(shop){
         shop.check();
         shop.checkAll();
         shop.addNum();
-        shop.changeNum()
+        shop.changeNum();
     })
 })

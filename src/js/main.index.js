@@ -10,5 +10,7 @@ require(['index'], function(index) {
     index.render();
     index.search();
     index.scroll();
-    index.tool()
+    index.tool();
+    index.userSave();
+    index.userOut();
 });

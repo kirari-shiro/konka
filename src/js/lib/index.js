@@ -73,6 +73,22 @@ define(['jquery'],function($){
                     scrollTop:0
                 },200);
             })
+        },
+        userSave:function(){
+            let username=localStorage.getItem('user')||sessionStorage.getItem('user');
+                username=JSON.parse(username);
+            if(username){
+                $('#user-save').html(username['user']);
+                $('#user-login').css('display','block');
+                $('#user-reg').css('display','none');
+            }
+        },
+        userOut:function(){
+            $('#user-out').on('click',function(){
+                localStorage.removeItem('user');
+                sessionStorage.removeItem('user');
+                location.reload()
+            })
         }
     }
 })

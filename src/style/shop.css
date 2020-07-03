@@ -65,6 +65,9 @@ a {
   position: relative;
   top: -3px;
 }
+.navbar-inverse > .nav > #user-login {
+  display: none;
+}
 .navbar-inverse > .nav > .reg {
   height: 40px;
   float: right;
