@@ -28,7 +28,7 @@ define(['jquery'], function ($) {
                             })
                             numT+=pri.now*num;
                             temp+=`
-                            <ul title="${elm.id}">
+                            <ul data-id="${elm.id}">
                                 <li><input type="checkbox" checked class="check"></li>
                                 <li>
                                     <img src="${baseUrl}/src/${elm.pic}" alt="">
@@ -68,7 +68,7 @@ define(['jquery'], function ($) {
 
                 shop = JSON.parse(shop);
                 shop.forEach(elm=>{
-                    if(elm.id !=ul.attr('title')){
+                    if(elm.id !=ul.attr('data-id')){
                         arr.push(elm)
                     }
                 })
