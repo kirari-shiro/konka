@@ -16,7 +16,7 @@ require(['index'],function(index){
 
 require(['shop'],function(shop){
     shop.checkAll();
-
+    shop.checkDel();
     shop.render(function(){
         shop.del();
         shop.check();

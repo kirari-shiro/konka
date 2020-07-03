@@ -117,9 +117,22 @@ define(['jquery'], function ($) {
             })
         },
         addNum:function(){
+            function cookie(ul,num){
+                let shop = localStorage.getItem('shop');
+                    shop = JSON.parse(shop);
+                    shop.forEach(elm=>{
+                        if(elm.id ==ul.attr('data-id')){
+                        elm.num=num
+                    }
+                })
+                localStorage.setItem('shop',JSON.stringify(shop))
+
+            }
+
             $('.input-add').on('click',function(){
                 let number=$(this).siblings('#number');
                 let num=number.val();
+                let ul=$(this).parent().parent();
                 num++;
                 if(num<=0){
                     num=1;
@@ -138,11 +151,14 @@ define(['jquery'], function ($) {
                    numT+= $(elm).html()*num
                 })
                 $('.numT').html(numT.toFixed(2));
-                $('.total').html(check.length)
+                $('.total').html(check.length);
+                cookie(ul,num);
+
             })
             $('.input-cut').on('click',function(){
                 let number=$(this).siblings('#number');
                 let num=number.val();
+                let ul=$(this).parent().parent();
                 num--;
                 if(num<=0){
                     num=1;
@@ -161,12 +177,28 @@ define(['jquery'], function ($) {
                    numT+= $(elm).html()*num
                 })
                 $('.numT').html(numT.toFixed(2));
-                $('.total').html(check.length)
+                $('.total').html(check.length);
+                cookie(ul,num);
+
+
             })
         },
         changeNum:function(){
             $('.shop_noun').on('input','#number',function(){
-                let num=$(this).val();
+                let num=$(this).val(),ul=$(this).parent().parent();
+
+                function cookie(){
+                    let shop = localStorage.getItem('shop');
+                        shop = JSON.parse(shop);
+                        shop.forEach(elm=>{
+                            if(elm.id ==ul.attr('data-id')){
+                            elm.num=num
+                        }
+                    })
+                    localStorage.setItem('shop',JSON.stringify(shop))
+
+                }
+
                 if(!num>0){
                     num=1
                 }else{
@@ -185,7 +217,39 @@ define(['jquery'], function ($) {
                    numT+= $(elm).html()*num
                 })
                 $('.numT').html(numT.toFixed(2));
-                $('.total').html(check.length)
+                $('.total').html(check.length);
+                cookie();
+            })
+        },
+        checkDel:function(){
+            function cookie(ul){
+                let shop = localStorage.getItem('shop');
+                    shop = JSON.parse(shop),
+                    arr=[];
+                    ul=Array.from(ul)
+                    ul.forEach(val=>{
+                        shop.forEach(elm=>{
+                            if(elm.id!=$(val).attr('data-id')){
+                                arr.push(elm)
+                            }
+                        })
+                        shop=arr;
+                        arr=[]
+                    })
+                localStorage.setItem('shop',JSON.stringify(shop))
+
+            }
+
+            $('.check-del').on('click',function(){
+                let shop=localStorage.getItem('shop'),
+                    uList=$('.check:checked').parent().parent();
+
+
+                    cookie(uList);
+                    uList.remove();
+
+                    $('.numT').html('0.00');
+                    $('.total').html('0')
             })
         }
     }
