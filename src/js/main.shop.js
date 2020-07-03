@@ -15,10 +15,11 @@ require(['index'],function(index){
 })
 
 require(['shop'],function(shop){
+    shop.checkAll();
+
     shop.render(function(){
         shop.del();
         shop.check();
-        shop.checkAll();
         shop.addNum();
         shop.changeNum();
     })
