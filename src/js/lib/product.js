@@ -150,10 +150,9 @@ define(['jquery'],function($){
         changeNum:function(){
             $('#number').on('input',function(){
                 let num=$(this).val();
-                if(!num>0){
+                num=num.replace(/\D|^[0]/g,'');
+                if(!num){
                     num=1
-                }else{
-                    num=parseInt(num);
                 }
                 $(this).val(num);
 

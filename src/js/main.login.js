@@ -14,6 +14,7 @@ require(['index'], function(index) {
 
 
 require(['login','jquery'],function(login,$){
+    login.confirm();
     login.login();
     login.vcode();
     $('.btn-vcode').on('click',function(){

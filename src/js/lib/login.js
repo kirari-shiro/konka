@@ -2,6 +2,13 @@ var baseUrl='http://localhost/konka';
 
 define(['jquery'],function($){
     return{
+        confirm:function(){
+            let user=localStorage.getItem('user') || sessionStorage.getItem('user')
+            if(user){
+                alert('已登录，请勿重复登录');
+                location.href='index.html'
+            }
+        },
         login:function(){
             $('.submit').on('click',function(){
                 if($('#vcode').val()!=$('.vcode-show').html()){

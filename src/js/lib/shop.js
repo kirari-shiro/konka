@@ -199,11 +199,11 @@ define(['jquery'], function ($) {
 
                 }
 
-                if(!num>0){
+                num=num.replace(/\D|^[0]/g,'');
+                if(!num){
                     num=1
-                }else{
-                    num=parseInt(num);
                 }
+
                 $(this).val(num);
 
                 $(this).parent().parent().children('li:nth-last-child(2)').html(
